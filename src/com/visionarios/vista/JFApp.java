@@ -27,6 +27,7 @@ public class JFApp extends javax.swing.JFrame {
         initComponents();
         jpa = new JPApp();
         this.setBounds(100, 100, 500, 500);
+        this.setTitle("VisionarioS 1.0");
         Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/visionariosIcon.jpg"));
         setIconImage(icon);
         this.setVisible(true);
