@@ -99,14 +99,14 @@ public class JPApp extends javax.swing.JPanel {
     
     }
     
-    private float grados = 0.1f;
+    private float grados = 0.001f;
     
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
+//        g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
 
         // create the transform, note that the transformations happen
         // in reversed order (so check them backwards)
@@ -116,7 +116,9 @@ public class JPApp extends javax.swing.JPanel {
         at.translate(getWidth() / 2, getHeight() / 2);
 
         // 3. do the actual rotation
-        at.rotate(Math.PI / grados);
+        at.rotate(grados);
+        
+        at.scale(1.5, 1.5);
 
 
         // 1. translate the object so that you rotate it around the 
@@ -131,7 +133,7 @@ public class JPApp extends javax.swing.JPanel {
         g2d.drawImage(haloScenario, (int)(mousex - (mousex  * 0.5)),(int)(mousey - (mousey  * 0.5)), getBounds().width, getBounds().height, null);
         g2d.drawImage(visionarios, (int)(mousex - (mousex  * 0.6)),(int)(mousey - (mousey  * 0.6)), getBounds().width, getBounds().height, null);
         g2d.drawImage(haloMountain, (int)(mousex - (mousex  * 0.6)),(int)(mousey - (mousey  * 0.6)), getBounds().width, getBounds().height, null);
-        grados = grados + 0.1f;
+        grados += 0.001f;
     }
 
 
