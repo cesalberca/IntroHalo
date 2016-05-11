@@ -105,6 +105,10 @@ public class JPApp extends javax.swing.JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        float velnubes = 0.01f;
+        float velescenario = 0.03f;
+        float velletras = 0.09f;
+        float velpp = 0.06f;
         Graphics2D g2d = (Graphics2D) g;
 //        g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
 
@@ -128,12 +132,12 @@ public class JPApp extends javax.swing.JPanel {
         // draw the image
         g2d.drawImage(bg, at, null);
 
-        g2d.drawImage(nube1, (int) (mousex  * 0.3f),(int) (mousey  * 0.3f) , getBounds().width, getBounds().height, null);
-        g2d.drawImage(nube2,(int) (mousex  * 0.3f),(int) (mousey  * 0.3f), getBounds().width, getBounds().height, null);
-        g2d.drawImage(nube3,(int) (mousex  * 0.3f),(int) (mousey  * 0.3f), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloScenario, (int)(mousex  * 0.5f),(int)(mousey  * 0.5f), getBounds().width, getBounds().height, null);
-        g2d.drawImage(visionarios, (int) (mousex  * 0.6f),(int) (mousey  * 0.6f), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloMountain, (int) (mousex  * 0.6f),(int) (mousey  * 0.6f), getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube1, (int) (mousex  * velnubes),(int) (mousey  * velnubes) , getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube2,(int) (mousex  * velnubes),(int) (mousey  * velnubes), getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube3,(int) (mousex  * velnubes),(int) (mousey  * velnubes), getBounds().width, getBounds().height, null);
+        g2d.drawImage(haloScenario, (int)(mousex  * velescenario),(int)(mousey  * velescenario), getBounds().width, getBounds().height, null);
+        g2d.drawImage(visionarios, (int) (mousex  * velletras),(int) (mousey  * velletras), getBounds().width, getBounds().height, null);
+        g2d.drawImage(haloMountain, (int) (mousex  * velpp),(int) (mousey  * velpp), getBounds().width, getBounds().height, null);
         grados = grados + 0.001f;
     }
 
