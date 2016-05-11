@@ -5,6 +5,12 @@
  */
 package com.visionarios.vista;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Toolkit;
+
 /**
  *
  * @author dam
@@ -17,6 +23,16 @@ public class JPApp extends javax.swing.JPanel {
     public JPApp() {
         initComponents();
     }
+    
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    double width = screenSize.getWidth();
+    double height = screenSize.getHeight();
+    
+    int posX = 10;
+    int posY = 10;
+    int dirX = 1;
+    int dirY = 1;
+    int xRect = (int)width/2;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +54,19 @@ public class JPApp extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    void anima() {
+        
+    }
+    
+     @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2d = (Graphics2D)g;
+        g2d.drawOval(posX, posY, 30, 30);
+        g2d.setColor(Color.red);
+        g2d.fillRoundRect(xRect, (int)height - 100, 100, 30, 5, 5);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

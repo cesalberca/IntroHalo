@@ -5,6 +5,11 @@
  */
 package com.visionarios.vista;
 
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+
 /**
  *
  * @author dam
@@ -21,6 +26,19 @@ public class JFApp extends javax.swing.JFrame {
         this.setBounds(100, 100, 500, 500);
         this.setVisible(true);
         this.getContentPane().add(jpa);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    }
+    
+    public void startAnimation() {
+        while(true) {
+            jpa.anima();
+            try {
+                sleep(5);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(JPApp.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jpa.repaint();
+        }
     }
 
     /**
