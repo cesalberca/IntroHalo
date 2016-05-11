@@ -109,6 +109,11 @@ public class JPApp extends javax.swing.JPanel {
         float velescenario = 0.03f;
         float velletras = 0.09f;
         float velpp = 0.06f;
+        int ajustexizq = 30;
+        int ajustexdrch = 60;
+        int ajustey = 30;
+        int ajustemontainx = 50;
+        int ajustemontainy = 50;
         Graphics2D g2d = (Graphics2D) g;
 //        g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
 
@@ -135,9 +140,9 @@ public class JPApp extends javax.swing.JPanel {
         g2d.drawImage(nube1, (int) (mousex  * velnubes),(int) (mousey  * velnubes) , getBounds().width, getBounds().height, null);
         g2d.drawImage(nube2,(int) (mousex  * velnubes),(int) (mousey  * velnubes), getBounds().width, getBounds().height, null);
         g2d.drawImage(nube3,(int) (mousex  * velnubes),(int) (mousey  * velnubes), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloScenario, (int)(mousex  * velescenario),(int)(mousey  * velescenario), getBounds().width, getBounds().height, null);
-        g2d.drawImage(visionarios, (int) (mousex  * velletras),(int) (mousey  * velletras), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloMountain, (int) (mousex  * velpp),(int) (mousey  * velpp), getBounds().width, getBounds().height, null);
+        g2d.drawImage(haloScenario, (int)(mousex  * velescenario)-ajustexizq,(int)(mousey  * velescenario), getBounds().width + ajustexdrch, getBounds().height, null);
+        g2d.drawImage(visionarios, (int) (mousex  * velletras),(int) (mousey  * velletras), getBounds().width + ajustexdrch, getBounds().height, null);
+        g2d.drawImage(haloMountain, (int) (mousex  * velpp),(int) (mousey  * velpp), getBounds().width + ajustemontainx, getBounds().height, null);
         grados = grados + 0.001f;
     }
 
