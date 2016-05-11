@@ -5,7 +5,6 @@
  */
 package com.visionarios.vista;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -29,13 +28,15 @@ public class JPApp extends javax.swing.JPanel {
     BufferedImage nube3 = null;
     BufferedImage haloMountain = null;
     BufferedImage haloScenario = null;
+    private float mousex;
+    private float mousey;
 
     /**
      * Creates new form JPApp
      */
     public JPApp() {
         initComponents();
-        
+
         try {
             bg = ImageIO.read(getClass().getResource("/recursos/bg.png"));
             nube1 = ImageIO.read(getClass().getResource("/recursos/nube1.png"));
@@ -48,11 +49,11 @@ public class JPApp extends javax.swing.JPanel {
             Logger.getLogger(JPApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
     double height = screenSize.getHeight();
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,6 +62,12 @@ public class JPApp extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,16 +81,21 @@ public class JPApp extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+        mousex = evt.getX();
+        mousey = evt.getY();
+    }//GEN-LAST:event_formMouseMoved
+
     void animarEstrellas() {
-        
+
     }
-    
-     @Override
+
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D)g;
+        Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
-        g2d.drawImage(nube1, 0, 0, getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube1,(int)(mousex - (mousex  * 0.3)),(int)(mousey - (mousey  * 0.3)) , getBounds().width, getBounds().height, null);
         g2d.drawImage(nube2, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(nube3, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(haloScenario, 0, 0, getBounds().width, getBounds().height, null);
