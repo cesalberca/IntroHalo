@@ -23,6 +23,13 @@ import javax.imageio.ImageIO;
 public class JPApp extends javax.swing.JPanel {
 
     BufferedImage bg = null;
+    BufferedImage visionarios = null;
+    BufferedImage nube1 = null;
+    BufferedImage nube2 = null;
+    BufferedImage nube3 = null;
+    BufferedImage haloMountain = null;
+    BufferedImage haloScenario = null;
+
     /**
      * Creates new form JPApp
      */
@@ -31,6 +38,7 @@ public class JPApp extends javax.swing.JPanel {
         
         try {
             bg = ImageIO.read(getClass().getResource("/recursos/bg.png"));
+            haloMountain = ImageIO.read(getClass().getResource("/recursos/haloMountain.png"));
         } catch (IOException ex) {
             Logger.getLogger(JPApp.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -70,6 +78,7 @@ public class JPApp extends javax.swing.JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
+        g2d.drawImage(haloMountain, 0, 0, getBounds().width, getBounds().height, null);
     }
 
 
