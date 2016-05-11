@@ -41,6 +41,7 @@ public class JPApp extends javax.swing.JPanel {
             nube1 = ImageIO.read(getClass().getResource("/recursos/nube1.png"));
             nube2 = ImageIO.read(getClass().getResource("/recursos/nube2.png"));
             nube3 = ImageIO.read(getClass().getResource("/recursos/nube3.png"));
+            visionarios = ImageIO.read(getClass().getResource("/recursos/visionarios.png"));
             haloMountain = ImageIO.read(getClass().getResource("/recursos/haloMountain.png"));
             haloScenario = ImageIO.read(getClass().getResource("/recursos/haloScenario.png"));
         } catch (IOException ex) {
@@ -85,8 +86,9 @@ public class JPApp extends javax.swing.JPanel {
         g2d.drawImage(nube1, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(nube2, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(nube3, 0, 0, getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloMountain, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(haloScenario, 0, 0, getBounds().width, getBounds().height, null);
+        g2d.drawImage(visionarios, 0, 0, getBounds().width, getBounds().height, null);
+        g2d.drawImage(haloMountain, 0, 0, getBounds().width, getBounds().height, null);
     }
 
 
