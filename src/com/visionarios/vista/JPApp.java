@@ -29,24 +29,21 @@ public class JPApp extends javax.swing.JPanel {
     BufferedImage nube3 = null;
     BufferedImage haloMountain = null;
     BufferedImage haloScenario = null;
-<<<<<<< HEAD
+
     private float mousex;
     private float mousey;
 
-=======
+
     SoundPlayer sp = null;
->>>>>>> origin/master
+
     /**
      * Creates new form JPApp
      */
     public JPApp() {
         initComponents();
-<<<<<<< HEAD
-=======
-        
+
         sp = new SoundPlayer(getClass().getResource("/recursos/musica2.wav"));
         sp.start();
->>>>>>> origin/master
 
         try {
             bg = ImageIO.read(getClass().getResource("/recursos/bg.png"));
