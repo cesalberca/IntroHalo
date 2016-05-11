@@ -10,6 +10,11 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -17,23 +22,24 @@ import java.awt.Toolkit;
  */
 public class JPApp extends javax.swing.JPanel {
 
+    BufferedImage bg = null;
     /**
      * Creates new form JPApp
      */
     public JPApp() {
         initComponents();
+        
+        try {
+            bg = ImageIO.read(getClass().getResource("/recursos/bg.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(JPApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
     double height = screenSize.getHeight();
     
-    int posX = 10;
-    int posY = 10;
-    int dirX = 1;
-    int dirY = 1;
-    int xRect = (int)width/2;
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +61,7 @@ public class JPApp extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    void anima() {
+    void animarEstrellas() {
         
     }
     
@@ -63,9 +69,7 @@ public class JPApp extends javax.swing.JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
-        g2d.drawOval(posX, posY, 30, 30);
-        g2d.setColor(Color.red);
-        g2d.fillRoundRect(xRect, (int)height - 100, 100, 30, 5, 5);
+        g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
     }
 
 

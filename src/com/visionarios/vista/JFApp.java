@@ -9,6 +9,7 @@ import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import static java.lang.Thread.sleep;
 
 /**
  *
@@ -31,7 +32,7 @@ public class JFApp extends javax.swing.JFrame {
     
     public void startAnimation() {
         while(true) {
-            jpa.anima();
+            jpa.animarEstrellas();
             try {
                 sleep(5);
             } catch (InterruptedException ex) {
