@@ -90,8 +90,8 @@ public class JPApp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
-        mousex = evt.getX();
-        mousey = evt.getY();
+        mousex = evt.getX() - (float)(width / 2);
+        mousey = evt.getY() - (float)(height / 2);
     }//GEN-LAST:event_formMouseMoved
 
     void animarEstrellas() {
