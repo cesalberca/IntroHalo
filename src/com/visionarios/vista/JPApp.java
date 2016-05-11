@@ -105,6 +105,8 @@ public class JPApp extends javax.swing.JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        int ajustevel = 30;
+        int ajustetam = 80;
         float velnubes = 0.01f;
         float velescenario = 0.03f;
         float velletras = 0.09f;
@@ -115,7 +117,7 @@ public class JPApp extends javax.swing.JPanel {
         // create the transform, note that the transformations happen
         // in reversed order (so check them backwards)
         AffineTransform at = new AffineTransform();
-
+        AffineTransform escala = new AffineTransform();
         // 4. translate it to the center of the component
         at.translate(getWidth() / 2, getHeight() / 2);
 
@@ -123,7 +125,7 @@ public class JPApp extends javax.swing.JPanel {
         at.rotate(grados);
         
         at.scale(1.5, 1.5);
-
+        
 
         // 1. translate the object so that you rotate it around the 
         //    center (easier :))
@@ -132,12 +134,13 @@ public class JPApp extends javax.swing.JPanel {
         // draw the image
         g2d.drawImage(bg, at, null);
 
-        g2d.drawImage(nube1, (int) (mousex  * velnubes),(int) (mousey  * velnubes) , getBounds().width, getBounds().height, null);
-        g2d.drawImage(nube2,(int) (mousex  * velnubes),(int) (mousey  * velnubes), getBounds().width, getBounds().height, null);
-        g2d.drawImage(nube3,(int) (mousex  * velnubes),(int) (mousey  * velnubes), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloScenario, (int)(mousex  * velescenario),(int)(mousey  * velescenario), getBounds().width, getBounds().height, null);
-        g2d.drawImage(visionarios, (int) (mousex  * velletras),(int) (mousey  * velletras), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloMountain, (int) (mousex  * velpp),(int) (mousey  * velpp), getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube1, (int) (mousex  * velnubes) - ajustevel,(int) (mousey  * velnubes) - ajustevel, getBounds().width + ajustetam, getBounds().height + ajustetam, null);
+        escala.scale(1.2, 1.2);
+        g2d.drawImage(nube2,(int) (mousex  * velnubes) - ajustevel,(int) (mousey  * velnubes) - ajustevel, getBounds().width + ajustetam, getBounds().height + ajustetam, null);
+        g2d.drawImage(nube3,(int) (mousex  * velnubes) - ajustevel,(int) (mousey  * velnubes) - ajustevel, getBounds().width + ajustetam, getBounds().height + ajustetam, null);
+        g2d.drawImage(haloScenario, (int)(mousex  * velescenario) - ajustevel,(int)(mousey  * velescenario) - ajustevel, getBounds().width + ajustetam, getBounds().height + ajustetam, null);
+        g2d.drawImage(visionarios, (int) (mousex  * velletras) - ajustevel,(int) (mousey  * velletras) - ajustevel, getBounds().width + ajustetam, getBounds().height + ajustetam, null);
+        g2d.drawImage(haloMountain, (int) (mousex  * velpp) - ajustevel,(int) (mousey  * velpp) - ajustevel, getBounds().width + ajustetam, getBounds().height + ajustetam, null);
         grados = grados + 0.001f;
     }
 
