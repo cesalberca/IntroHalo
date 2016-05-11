@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -75,20 +76,42 @@ public class JPApp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     void animarEstrellas() {
-        
+        //g2d.rotate(240, 1920 + (100*0.5), 1080+(30 *0.5));
     }
     
-     @Override
+    private float grados = 0.1f;
+    
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
         g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
+        
+        // create the transform, note that the transformations happen
+        // in reversed order (so check them backwards)
+        AffineTransform at = new AffineTransform();
+
+        // 4. translate it to the center of the component
+        at.translate(getWidth() / 2, getHeight() / 2);
+
+        // 3. do the actual rotation
+        at.rotate(Math.PI / grados);
+
+
+        // 1. translate the object so that you rotate it around the 
+        //    center (easier :))
+        at.translate(-bg.getWidth()/2, -bg.getHeight()/2);
+
+        // draw the image
+        g2d.drawImage(bg, at, null);
+
         g2d.drawImage(nube1, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(nube2, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(nube3, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(haloScenario, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(visionarios, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(haloMountain, 0, 0, getBounds().width, getBounds().height, null);
+        grados = grados + 0.1f;
     }
 
 
