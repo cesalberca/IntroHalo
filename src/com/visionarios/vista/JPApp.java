@@ -30,13 +30,16 @@ public class JPApp extends javax.swing.JPanel {
     BufferedImage nube3 = null;
     BufferedImage haloMountain = null;
     BufferedImage haloScenario = null;
-
+    SoundPlayer sp = null;
     /**
      * Creates new form JPApp
      */
     public JPApp() {
         initComponents();
         
+        sp = new SoundPlayer(getClass().getResource("/recursos/musica2.wav"));
+        sp.start();
+
         try {
             bg = ImageIO.read(getClass().getResource("/recursos/bg.png"));
             nube1 = ImageIO.read(getClass().getResource("/recursos/nube1.png"));
@@ -49,11 +52,11 @@ public class JPApp extends javax.swing.JPanel {
             Logger.getLogger(JPApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
     double height = screenSize.getHeight();
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,7 +79,7 @@ public class JPApp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     void animarEstrellas() {
-        //g2d.rotate(240, 1920 + (100*0.5), 1080+(30 *0.5));
+    
     }
     
     private float grados = 0.1f;
@@ -84,7 +87,7 @@ public class JPApp extends javax.swing.JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D)g;
+        Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
         
         // create the transform, note that the transformations happen

@@ -5,6 +5,8 @@
  */
 package com.visionarios.vista;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 import static java.lang.Thread.sleep;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +27,8 @@ public class JFApp extends javax.swing.JFrame {
         initComponents();
         jpa = new JPApp();
         this.setBounds(100, 100, 500, 500);
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/recursos/visionariosIcon.jpg"));
+        setIconImage(icon);
         this.setVisible(true);
         this.getContentPane().add(jpa);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
