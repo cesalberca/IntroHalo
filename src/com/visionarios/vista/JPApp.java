@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -28,14 +29,24 @@ public class JPApp extends javax.swing.JPanel {
     BufferedImage nube3 = null;
     BufferedImage haloMountain = null;
     BufferedImage haloScenario = null;
+<<<<<<< HEAD
     private float mousex;
     private float mousey;
 
+=======
+    SoundPlayer sp = null;
+>>>>>>> origin/master
     /**
      * Creates new form JPApp
      */
     public JPApp() {
         initComponents();
+<<<<<<< HEAD
+=======
+        
+        sp = new SoundPlayer(getClass().getResource("/recursos/musica2.wav"));
+        sp.start();
+>>>>>>> origin/master
 
         try {
             bg = ImageIO.read(getClass().getResource("/recursos/bg.png"));
@@ -88,19 +99,43 @@ public class JPApp extends javax.swing.JPanel {
 
     void animarEstrellas() {
 
+    
     }
+    
+    private float grados = 0.1f;
+    
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(bg, 0, 0, getBounds().width, getBounds().height, null);
+
+        // create the transform, note that the transformations happen
+        // in reversed order (so check them backwards)
+        AffineTransform at = new AffineTransform();
+
+        // 4. translate it to the center of the component
+        at.translate(getWidth() / 2, getHeight() / 2);
+
+        // 3. do the actual rotation
+        at.rotate(Math.PI / grados);
+
+
+        // 1. translate the object so that you rotate it around the 
+        //    center (easier :))
+        at.translate(-bg.getWidth()/2, -bg.getHeight()/2);
+
+        // draw the image
+        g2d.drawImage(bg, at, null);
+
         g2d.drawImage(nube1,(int)(mousex - (mousex  * 0.3)),(int)(mousey - (mousey  * 0.3)) , getBounds().width, getBounds().height, null);
         g2d.drawImage(nube2, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(nube3, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(haloScenario, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(visionarios, 0, 0, getBounds().width, getBounds().height, null);
         g2d.drawImage(haloMountain, 0, 0, getBounds().width, getBounds().height, null);
+        grados = grados + 0.1f;
     }
 
 
