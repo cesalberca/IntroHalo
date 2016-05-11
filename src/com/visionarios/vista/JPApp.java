@@ -134,7 +134,7 @@ public class JPApp extends javax.swing.JPanel {
         g2d.drawImage(haloScenario, (int)(mousex  * 0.5f),(int)(mousey  * 0.5f), getBounds().width, getBounds().height, null);
         g2d.drawImage(visionarios, (int) (mousex  * 0.6f),(int) (mousey  * 0.6f), getBounds().width, getBounds().height, null);
         g2d.drawImage(haloMountain, (int) (mousex  * 0.6f),(int) (mousey  * 0.6f), getBounds().width, getBounds().height, null);
-        grados = grados + 0.1f;
+        grados = grados + 0.001f;
     }
 
 
