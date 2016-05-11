@@ -125,12 +125,12 @@ public class JPApp extends javax.swing.JPanel {
 
         // draw the image
         g2d.drawImage(bg, at, null);
-        g2d.drawImage(nube1,(int)(mousex - (mousex  * 0.3)),(int)(mousey - (mousey  * 0.3)) , getBounds().width, getBounds().height, null);
-        g2d.drawImage(nube2,(int)(mousex - (mousex  * 0.3)),(int)(mousey - (mousey  * 0.3)), getBounds().width, getBounds().height, null);
-        g2d.drawImage(nube3,(int)(mousex - (mousex  * 0.3)),(int)(mousey - (mousey  * 0.3)), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloScenario, (int)(mousex - (mousex  * 0.5)),(int)(mousey - (mousey  * 0.5)), getBounds().width, getBounds().height, null);
-        g2d.drawImage(visionarios, (int)(mousex - (mousex  * 0.6)),(int)(mousey - (mousey  * 0.6)), getBounds().width, getBounds().height, null);
-        g2d.drawImage(haloMountain, (int)(mousex - (mousex  * 0.6)),(int)(mousey - (mousey  * 0.6)), getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube1, (int) (mousex  * 0.3f),(int) (mousey  * 0.3f) , getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube2,(int) (mousex  * 0.3f),(int) (mousey  * 0.3f), getBounds().width, getBounds().height, null);
+        g2d.drawImage(nube3,(int) (mousex  * 0.3f),(int) (mousey  * 0.3f), getBounds().width, getBounds().height, null);
+        g2d.drawImage(haloScenario, (int)(mousex  * 0.5f),(int)(mousey  * 0.5f), getBounds().width, getBounds().height, null);
+        g2d.drawImage(visionarios, (int) (mousex  * 0.6f),(int) (mousey  * 0.6f), getBounds().width, getBounds().height, null);
+        g2d.drawImage(haloMountain, (int) (mousex  * 0.6f),(int) (mousey  * 0.6f), getBounds().width, getBounds().height, null);
         grados = grados + 0.1f;
     }
 
